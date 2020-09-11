@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  template: template0
+
+
+development:
+  <<: *default
+  database: instaclone-d_development
+
+test:
+  <<: *default
+  database: instaclone-d_test
+
+production:
+  <<: *default
+  database: instaclone-d_production
+  username: instaclone-d
+  password: <%= ENV['instaclone-d_DATABASE_PASSWORD'] %>
