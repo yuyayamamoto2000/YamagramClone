@@ -4,7 +4,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @picture.image.url %>
+  <%= image_tag @picture.image.thumb.url %>
 </p>
 
 <% unless @picture.user_id == current_user.id %>
@@ -14,6 +14,7 @@
     <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
 <% end %>
-
+<% if current_user.id == @picture.user.id %>
 <%= link_to '編集', edit_picture_path(@picture) %>
+<% end %>
 <%= link_to '一覧へ戻る', pictures_path %>
