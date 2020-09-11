@@ -9,7 +9,7 @@
 <% @pictures.each do |picture| %>
   <tr>
     <td><%= picture.content %></td>
-    <td><%= image_tag picture.image.url %></td>
+    <td><%= image_tag picture.image.thumb.url %></td>
     <td><%= picture.user.name %></td>
     <td><%= link_to '詳細を確認する', picture_path(picture.id) %></td>
     <% if current_user.id == picture.user.id %>
